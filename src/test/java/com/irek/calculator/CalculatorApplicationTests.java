@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class CalculatorApplicationTests {
 
     @Test
-    void contextLoads() {
+    public void testAddition() {
+
     }
 
 }
