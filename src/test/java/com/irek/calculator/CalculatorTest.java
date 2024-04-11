@@ -1,16 +1,15 @@
 package com.irek.calculator;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.context.event.annotation.BeforeTestClass;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
 
-    Calculator calculator = new Calculator();
+    private final Calculator calculator = new Calculator();
 //    @BeforeTestClass
 //    public void setup(){
 //        this.calculator = ;
@@ -32,7 +31,6 @@ class CalculatorTest {
         }
     }
 
-
     @Nested
     @DisplayName("Advanced calculations")
     class AdvancedCalculations{
@@ -45,7 +43,15 @@ class CalculatorTest {
         @Test
         @DisplayName("Test division")
         void division() {
-            assertEquals(4, calculator.division(8,2));
+//            calculator.division(8,0);
+
+            Assertions.assertThrows(
+                ArithmeticException.class, () -> {
+                    calculator.division(8,0);
+                }
+            );
+
+            Assertions.assertEquals(4, calculator.division(8,2));
         }
     }
 }

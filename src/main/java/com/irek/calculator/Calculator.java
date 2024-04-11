@@ -20,8 +20,8 @@ public class Calculator {
 
     //○ Faire une division de deux entiers et retourner un résultat;
 
-    public float division(int a, int b) {
-        return (float) a / b;
+    public int division(int a, int b) {
+        return a / b;
     }
 
 }
